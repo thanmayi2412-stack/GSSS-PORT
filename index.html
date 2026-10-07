@@ -1,0 +1,687 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Thanmayi T H | AI & Data Science</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b1020;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11,16,32,0.95);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav h2 {
+            color: #00e5ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00e5ff;
+        }
+
+        /* COMMON */
+        section {
+            padding: 100px 8%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .title h2 {
+            font-size: 35px;
+            color: #00e5ff;
+        }
+
+        .title p {
+            color: #bbb;
+        }
+
+        /* HOME */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            background: linear-gradient(135deg, #111936, #21133d);
+        }
+
+        .home-text {
+            max-width: 650px;
+        }
+
+        .home-text h1 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .home-text h1 span {
+            color: #00e5ff;
+        }
+
+        .home-text h3 {
+            color: #b46cff;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .home-text p {
+            color: #ddd;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #00e5ff, #b46cff);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .profile {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 5px solid #00e5ff;
+            object-fit: cover;
+            box-shadow: 0 0 35px #00e5ff;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+            color: #ddd;
+            font-size: 18px;
+        }
+
+        /* EDUCATION */
+        .education-box {
+            max-width: 800px;
+            margin: auto;
+            background: #151d38;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #00e5ff;
+        }
+
+        .education-box h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 14px 22px;
+            background: linear-gradient(135deg, #18244a, #302052);
+            border-radius: 25px;
+            border: 1px solid #444;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #00e5ff;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: #151d38;
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+            border: 1px solid #293252;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,229,255,0.2);
+        }
+
+        .card h3 {
+            color: #00e5ff;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #ccc;
+            margin-bottom: 18px;
+        }
+
+        .github {
+            text-decoration: none;
+            color: white;
+            background: #242b48;
+            padding: 8px 15px;
+            border-radius: 20px;
+        }
+
+        .github:hover {
+            background: #00e5ff;
+            color: #111;
+        }
+
+        /* CONTACT */
+        #contact {
+            background: linear-gradient(135deg, #111936, #21133d);
+        }
+
+        .contact-box {
+            text-align: center;
+        }
+
+        .contact-box p {
+            margin: 12px;
+            font-size: 18px;
+        }
+
+        .contact-box a {
+            color: #00e5ff;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #080c18;
+            color: #aaa;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 130px;
+            }
+
+            .home-text h1 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .profile {
+                width: 210px;
+                height: 210px;
+            }
+
+            .home-text h1 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <h2>Thanmayi.</h2>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HOME -->
+    <section id="home">
+
+        <div class="home-text">
+            <h1>Hello, I'm <span>Thanmayi T H</span></h1>
+
+            <h3>B.E. Artificial Intelligence & Data Science Student</h3>
+
+            <p>
+                Passionate about Artificial Intelligence, Machine Learning
+                and Data Science. I enjoy learning new technologies and
+                building practical projects that solve real-world problems.
+            </p>
+
+            <a href="#projects" class="btn">View My Projects</a>
+            <a href="#contact" class="btn">Contact Me</a>
+        </div>
+
+        <!-- Replace profile.jpg with your photo -->
+        <img src="profile.jpg" class="profile" alt="Thanmayi Profile Photo">
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="title">
+            <h2>About Me</h2>
+            <p>Get to know me</p>
+        </div>
+
+        <div class="about">
+            <p>
+                I am Thanmayi T H, a B.E. Artificial Intelligence and
+                Data Science student at GSSS Institute of Engineering
+                and Technology for Women, Mysore, Karnataka.
+            </p>
+
+            <br>
+
+            <p>
+                I am interested in Artificial Intelligence, Machine Learning,
+                Data Analytics and Python programming. I am continuously
+                improving my technical and problem-solving skills and
+                preparing myself for a successful career in the IT industry.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="title">
+            <h2>Education</h2>
+            <p>My academic journey</p>
+        </div>
+
+        <div class="education-box">
+            <h3>B.E. Artificial Intelligence & Data Science</h3>
+
+            <p>
+                <strong>GSSS Institute of Engineering and Technology
+                for Women</strong>
+            </p>
+
+            <p>Mysore, Karnataka</p>
+
+            <p>Currently pursuing B.E.</p>
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="title">
+            <h2>Technical Skills</h2>
+            <p>Technologies I am learning and working with</p>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">SQL</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Artificial Intelligence</div>
+            <div class="skill">Data Science</div>
+            <div class="skill">Power BI</div>
+            <div class="skill">Excel</div>
+            <div class="skill">Pandas</div>
+            <div class="skill">NumPy</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="title">
+            <h2>My Projects</h2>
+            <p>Some of my technical projects</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>AI Resume Analyzer</h3>
+
+                <p>
+                    An AI-based application that analyzes resumes,
+                    identifies skills and matches candidates with
+                    suitable job roles.
+                </p>
+
+                <a href="#" class="github">GitHub →</a>
+            </div>
+
+
+            <div class="card">
+                <h3>Student Result Predictor</h3>
+
+                <p>
+                    A machine learning based project that predicts
+                    student performance using academic and attendance
+                    related data.
+                </p>
+
+                <a href="#" class="github">GitHub →</a>
+            </div>
+
+
+            <div class="card">
+                <h3>Data Analytics Dashboard</h3>
+
+                <p>
+                    An interactive dashboard created using data
+                    analytics tools to visualize useful business
+                    insights.
+                </p>
+
+                <a href="#" class="github">GitHub →</a>
+            </div>
+
+
+            <div class="card">
+                <h3>Python Projects</h3>
+
+                <p>
+                    Collection of beginner-friendly Python projects
+                    demonstrating programming, logic building and
+                    problem-solving skills.
+                </p>
+
+                <a href="#" class="github">GitHub →</a>
+            </div>
+
+
+            <div class="card">
+                <h3>Machine Learning Project</h3>
+
+                <p>
+                    A machine learning project focused on data
+                    preprocessing, model training and prediction.
+                </p>
+
+                <a href="#" class="github">GitHub →</a>
+            </div>
+
+
+            <div class="card">
+                <h3>AI Data Analysis</h3>
+
+                <p>
+                    A data science project using Python, Pandas and
+                    NumPy to analyze datasets and generate insights.
+                </p>
+
+                <a href="#" class="github">GitHub →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+
+        <div class="title">
+            <h2>Certifications</h2>
+            <p>Courses and certifications</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Python Certification</h3>
+                <p>
+                    Certification in Python programming and
+                    problem solving.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Data Science</h3>
+                <p>
+                    Certification related to Data Science,
+                    analytics and machine learning.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>AI / ML Certification</h3>
+                <p>
+                    Certification covering Artificial Intelligence
+                    and Machine Learning concepts.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INTERNSHIP -->
+    <section id="internship">
+
+        <div class="title">
+            <h2>Internship</h2>
+            <p>My professional experience</p>
+        </div>
+
+        <div class="education-box">
+
+            <h3>Data Analytics Internship</h3>
+
+            <p>
+                Interested in gaining practical experience in
+                data analysis, visualization, Python, SQL and
+                business intelligence.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements">
+
+        <div class="title">
+            <h2>Achievements</h2>
+            <p>My accomplishments</p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Technical Learning</h3>
+                <p>
+                    Continuously developing skills in AI,
+                    Data Science, Python and Machine Learning.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Project Development</h3>
+                <p>
+                    Building practical projects to improve
+                    programming and problem-solving skills.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Continuous Learning</h3>
+                <p>
+                    Actively learning new technologies and
+                    preparing for future IT opportunities.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="title">
+            <h2>Contact Me</h2>
+            <p>Let's connect</p>
+        </div>
+
+        <div class="contact-box">
+
+            <p>
+                📞
+                <a href="tel:8310615960">
+                    8310615960
+                </a>
+            </p>
+
+            <p>
+                📧
+                <a href="mailto:thanmayi2412@gmail.com">
+                    thanmayi2412@gmail.com
+                </a>
+            </p>
+
+            <p>
+                📍 Mysore, Karnataka, India
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 Thanmayi T H | AI & Data Science
+        </p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Simple scroll animation
+        const sections = document.querySelectorAll("section");
+
+        window.addEventListener("scroll", () => {
+
+            sections.forEach(section => {
+
+                const position = section.getBoundingClientRect().top;
+
+                if (position < window.innerHeight - 100) {
+                    section.style.opacity = "1";
+                    section.style.transform = "translateY(0)";
+                }
+
+            });
+
+        });
+
+        // Initial animation
+        sections.forEach(section => {
+            section.style.opacity = "0";
+            section.style.transform = "translateY(30px)";
+            section.style.transition = "all 0.8s ease";
+        });
+
+    </script>
+
+</body>
+</html>
+```
+  
